@@ -1,3 +1,9 @@
+\.gradle
+\.idea
+\build
+*.log
+*.class
+
 # Compiled class file
 *.class
 
