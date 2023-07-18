@@ -14,14 +14,14 @@ import static io.qameta.allure.Allure.step;
 import static org.openqa.selenium.By.*;
 
 @Owner("o.kos")
-@Epic("Mobile app wildberries")
+@Epic("VOA")
 public class Test1 extends TestBase {
 
     @Test
-    @DisplayName("Сurrency change on main page")
+    @DisplayName("Search info in VOA")
     void currencyChangeTest() {
 
-         $(id("vn.innoloop.VOALearningEnglish:id/searchMenuItem")).click();
+         $(AppiumBy.id("vn.innoloop.VOALearningEnglish:id/searchMenuItem")).click();
          $(AppiumBy.id("vn.innoloop.VOALearningEnglish:id/search_src_text")).sendKeys("James Dean");
          $(AppiumBy.id("vn.innoloop.VOALearningEnglish:id/search_src_text")).pressEnter();
          $(AppiumBy.id("vn.innoloop.VOALearningEnglish:id/title_text"))
