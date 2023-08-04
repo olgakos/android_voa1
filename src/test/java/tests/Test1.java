@@ -30,6 +30,33 @@ public class Test1 extends TestBase {
                     .shouldHave(text("November 13, 2019"));
     }
 
+        @Test
+    void successfulSearchTest2() {
+        step("Type search", () -> {
+            $(AppiumBy.accessibilityId("vn.innoloop.VOALearningEnglish:id/searchMenuItem")).click();
+            $(AppiumBy.id("vn.innoloop.VOALearningEnglish:id/search_src_text")).sendKeys("James Dean");
+            $(AppiumBy.id("vn.innoloop.VOALearningEnglish:id/search_src_text")).pressEnter();
+        });
+        
+        step("Verify content found", () ->              
+         $(AppiumBy.id("vn.innoloop.VOALearningEnglish:id/title_text"))
+                    .shouldHave(text("Dead for 64 Years, James Dean to Star in New Film"));
+         $(AppiumBy.id("vn.innoloop.VOALearningEnglish:id/published_date_text"))
+                    .shouldHave(text("November 13, 2019"));        
+            $$(AppiumBy.id("vn.innoloop.VOALearningEnglish:id/title_text"))
+                    .shouldHave(sizeGreaterThan(0)));
+    }
+    
+    @Test
+    void successfulSearchTest0() {
+        step("Type search", () -> {
+            $(AppiumBy.accessibilityId("Search Wikipedia")).click();
+            $(AppiumBy.id("org.wikipedia.alpha:id/search_src_text")).sendKeys("Appium");
+        });
+        step("Verify content found", () ->
+            $$(AppiumBy.id("org.wikipedia.alpha:id/search_container"))
+                    .shouldHave(sizeGreaterThan(0)));
+    }
 
             //$x("//android.widget.EditText").sendKeys("anti");
             //$$(className("android.widget.TextView")).findBy(text("antis")).shouldBe(visible);
